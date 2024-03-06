@@ -23,11 +23,13 @@ def main(sector: str, queueName: str) -> None:
     #
     #                       WRITE CODE HERE!!!
     #
+    bindingKey = '#.%s', sector
     
-    consumer = mqConsumer(binding_key=bindingKey,exchange_name="Tech Lab Topic Exchange",queue_name=queueName)    
+    consumer = mqConsumer(binding_key=bindingKey, 
+                          exchange_name="Tech Lab Topic Exchange",
+                          queue_name=queueName)    
     consumer.startConsuming()
     
-
 
 if __name__ == "__main__":
 
@@ -35,5 +37,9 @@ if __name__ == "__main__":
     #
     #                       WRITE CODE HERE!!!
     #
+    if (len(sys.argv) < 3):
+        Exception("Not enough argument")
+    sector = sys.argv[1]
+    queueName = sys.argv[2]
 
-    sys.exit(main(sector,queue))
+    sys.exit(main(sector,queueName))
