@@ -23,7 +23,7 @@ def main(sector: str, queueName: str) -> None:
     #
     #                       WRITE CODE HERE!!!
     #
-    bindingKey = '#.%s', sector
+    bindingKey = f"#.{sector}"
     
     consumer = mqConsumer(binding_key=bindingKey, 
                           exchange_name="Tech Lab Topic Exchange",
